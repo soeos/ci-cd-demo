@@ -1,24 +1,31 @@
-name: SSH Test
+name: CD
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  test-ssh:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test SSH connection
+      - name: Deploy to VPS
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            echo "SSH connection successful!"
-            echo "Server:"
-            uname -a
-            echo "Docker:"
-            docker --version
-            echo "Docker Compose:"
-            docker compose version
+            cd /opt/ci-cd-demo
+
+            echo "Pull latest code..."
+            git pull origin main
+
+            echo "Build and restart..."
+            docker compose up -d --build
+
+            echo "Deployment completed!"
+
+            echo "Container status:"
+            docker compose ps
