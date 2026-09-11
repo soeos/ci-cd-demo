@@ -3,17 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CI/CD Demo</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>CI/CD Demo</h1>
-        <p>这是我的第一个自动部署项目。</p>
-        <button onclick="sayHello()">测试按钮</button>
-        <p id="message"></p>
-    </div>
+
+    <div class="background"></div>
+
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-dot"></span>
+            CI/CD Demo
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            System Online
+        </div>
+    </header>
+
+
+    <main class="hero">
+
+        <div class="badge">
+            🚀 Automatically Deployed
+        </div>
+
+        <h1>
+            From <span>Code</span><br>
+            to <span>Production</span>
+        </h1>
+
+        <p class="description">
+            一个基于 GitHub Actions、Docker 和 Linux VPS
+            构建的自动化 CI/CD 部署示例。
+        </p>
+
+        <div class="buttons">
+            <button class="primary" onclick="sayHello()">
+                开始测试
+                <span>→</span>
+            </button>
+
+            <a
+                class="secondary"
+                href="https://github.com/"
+                target="_blank"
+            >
+                GitHub
+            </a>
+        </div>
+
+        <div id="message" class="message"></div>
+
+
+        <section class="cards">
+
+            <div class="card">
+                <div class="icon">⚡</div>
+                <h3>Continuous Integration</h3>
+                <p>
+                    每次代码提交后自动执行检查与 Docker 构建。
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🚀</div>
+                <h3>Continuous Deployment</h3>
+                <p>
+                    GitHub Actions 自动连接服务器并完成部署。
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🐳</div>
+                <h3>Dockerized</h3>
+                <p>
+                    使用 Docker 和 Compose 管理应用运行环境。
+                </p>
+            </div>
+
+        </section>
+
+
+        <div class="pipeline">
+
+            <div class="pipeline-title">
+                Deployment Pipeline
+            </div>
+
+            <div class="steps">
+
+                <div class="step active">
+                    <div class="step-icon">⌨</div>
+                    <span>Code</span>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="step active">
+                    <div class="step-icon">◆</div>
+                    <span>GitHub</span>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="step active">
+                    <div class="step-icon">⚙</div>
+                    <span>Actions</span>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="step active">
+                    <div class="step-icon">🐳</div>
+                    <span>Docker</span>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="step active">
+                    <div class="step-icon">✓</div>
+                    <span>Production</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+        <span>CI/CD Demo</span>
+        <span>Built with Docker · GitHub Actions · Linux</span>
+    </footer>
+
 
     <script src="script.js"></script>
+
 </body>
 </html>
